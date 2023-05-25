@@ -6,13 +6,13 @@ import man2Icon from './images/man_2_icon.png'
 
 const ChatBox = () => {
   const [messages, setMessages] = useState([]);
-  const scroll = useRef();
-  const storedMessages = localStorage.getItem('chatMessages');
-
   const [users, setUsers] = useState([
     {id:1, name:'John Doe', avatar:man1Icon},
     {id:2, name:'Carl Black', avatar:man2Icon},
   ]);
+  const scroll = useRef();
+  const storedMessages = localStorage.getItem('chatMessages');
+  localStorage.setItem('storedUsers', JSON.stringify(users))
 
   useEffect(() => {
     // Retrieve chat messages from localStorage
